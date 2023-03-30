@@ -1,0 +1,14 @@
+---
+- name: Instalando pacotes essenciais Ubuntu
+  apt:
+    name: "{{pacotes}}"
+    state: present
+  become: true   
+  when: ansible_distribution== "Ubuntu"
+
+- name: Instalando pacotes essenciais CentOS
+  yum:
+    name: "{{pacotes}}"
+    state: present
+  become: true
+  when: ansible_distribution== "CentOS"

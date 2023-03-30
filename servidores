@@ -1,0 +1,15 @@
+[web_01]
+cent_os_lab    ansible_host=192.168.0.190
+cent_os_lab_2  ansible_host=192.168.42.190
+
+[db_01]
+ubuntu_lab   ansible_host=192.168.0.195 ansible_python_interpreter=/usr/bin/python3.8
+ubuntu_lab_2 ansible_host=192.168.42.195 ansible_python_interpreter="/usr/bin/python3.8"
+
+[filial_01:children]
+web_01
+db_01
+
+[filial_01:vars]
+ansible_user=vagrant
+ansible_port=22
